@@ -57,6 +57,6 @@ function copyOrder(){const box=document.getElementById('message-text');box.selec
 document.getElementById('order-form').addEventListener('submit',function(e){e.preventDefault();let lines=[];let total=0;Object.keys(items).forEach(id=>{if(qty[id]>0){const sub=qty[id]*priceOf(id);total+=sub;lines.push('- '+items[id].name+' × '+qty[id]+' = '+money(sub))}});
 if(!lines.length){alert('Please add something to your basket first!');return}
 const name=document.getElementById('customer-name').value.trim();const method=document.getElementById('payment-method').value;const notes=document.getElementById('notes').value.trim();
-const message='Hi DG! I would like to order from Lucky Scoops and Trinkets by DG.\\n\\nMy order:\\n'+lines.join('\\n')+'\\n\\nTotal: '+money(total)+'\\nName: '+name+'\\nContact/collection: '+method+(notes?'\\nNotes: '+notes:'')+'\\n\\nPlease let me know how to arrange payment and collection. Thanks!';
+const message='Hi DG! I would like to order from Lucky Scoops and Trinkets by DG.\n\nMy order:\n'+lines.join('\n')+'\n\nTotal: '+money(total)+'\nName: '+name+'\nContact/collection: '+method+(notes?'\nNotes: '+notes:'')+'\n\nPlease let me know how to arrange payment and collection. Thanks!';
 document.getElementById('message-text').value=message;document.getElementById('order-message').hidden=false;document.getElementById('copy-status').textContent='';});
 </script></body></html>
